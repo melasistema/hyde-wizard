@@ -25,24 +25,29 @@ Ensure you have the following installed:
 git clone git@github.com:melasistema/hyde-wizard.git
 ```
 
-2. **Install dependencies:**
+2. **Navigate into the project folder:**
+```bash
+cd hyde-wizard
+```
+
+3. **Install dependencies:**
 
 ```bash
 composer install
 npm install
 ```   
 
-3. **Compile assets and serve the site:**
+4. **Compile assets and serve the site:**
 
 ```bash
 npm run dev
 php hyde serve
 ```
 
-4. **Access the site:**  
+5. **Access the site:**  
     Open your browser and navigate to `http://localhost:8080`.
 
-5. **Explore and enjoy!**  
+6. **Explore and enjoy!**  
     Harness the power of the [HydePHP Layouts Manager](https://hydephp.melasistema.com) to customize layouts, styles, and more!
 
 ----------
