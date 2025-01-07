@@ -1,0 +1,618 @@
+<!--
+|--------------------------------------------------------------------------
+| Base Layout: MelaSistema Theme
+|--------------------------------------------------------------------------
+| This is the base layout file for the MelaSistema theme used in the HydePHP Layouts Manager package.
+| File Path: resources/views/layouts/melasistema/app.blade.php
+|
+| Usage Recommendation:
+| - This file is the foundation for rendering your web pages using the MelaSistema theme.
+| - It is recommended to extend this layout in your page-specific Blade views using the extends directive.
+|
+| Purpose:
+| - Provides the core HTML structure for the MelaSistema theme, including the header, footer,
+|   and other common elements shared across your site's pages.
+| - It includes essential configurations such as dark mode and accessibility features.
+|
+| Components Included:
+| - **Head Section**: Includes external styles, scripts, and meta tags required for the layout.
+| - **Skip to Content Button**: Provides a link for users to quickly skip to the main content for accessibility.
+| - **Navigation**: Displays the main site navigation.
+| - **Footer**: Contains the site's footer elements.
+| - **Scripts**: Includes necessary JavaScript files.
+|
+| Flowbite Integration:
+| - This layout uses **Flowbite** https://flowbite.com, a Tailwind CSS component library, for the styling of navigation and other UI elements.
+| - Ensure Flowbite is properly installed and configured to achieve the expected layout behavior.
+|
+| @package    Melasistema\HydeLayoutsManager
+| @author     Luca Visciola
+| @copyright  2024 Luca Visciola
+| @license    MIT License
+|--------------------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <head>
+            <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hyde Wizard - The Tale of Zoe - Home</title>
+
+    <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon">
+
+
+<meta name="twitter:title" content="Hyde Wizard - The Tale of Zoe - Home">
+<meta property="og:title" content="Hyde Wizard - The Tale of Zoe - Home">
+
+
+<meta name="generator" content="HydePHP v1.7.5">
+<meta property="og:site_name" content="Hyde Wizard - The Tale of Zoe">
+
+
+    <!-- Specific Meta for Homepage -->
+    <meta property="og:image" content="http://localhost/media/book-cover/zoe-book-cover-full.png">
+    <meta property="og:image:alt" content="Hyde Wizard - The Tale of Zoe">
+    <meta name="twitter:image" content="http://localhost/media/book-cover/zoe-book-cover-full.png">
+
+
+<style>[x-cloak] {display: none!important}</style>
+
+
+    <link rel="stylesheet" href="media/app.css?v=a0c9b855cda544f449503f9e07fd0bb6">
+
+
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower:wght@400&amp;family=Sour+Gummy:wght@600&amp;family=Sour+Gummy:wght@600&amp;family=Sour+Gummy:wght@600&amp;family=Handlee:wght@400&amp;family=Just+Another+Hand:wght@400&amp;family=Fira+Code:wght@400;500&amp;family=Amatic+SC:wght@400;700&amp;display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+
+        </head>
+    </head>
+    <body id="app" class="flex flex-col min-h-screen overflow-x-hidden dark:bg-gray-900 dark:text-white" x-data="{ navigationOpen: false }" x-on:keydown.escape="navigationOpen = false;">
+        <a href="#content" id="skip-to-content" class="sr-only focus:not-sr-only bg-black border-4 border-yellow-400 focus:absolute focus:mt-2 focus:mx-auto focus:p-2 focus:w-64 h-auto left-0 overflow-auto right-0 rounded-md text-center text-lg text-white top-auto z-50 ">Skip to content</a>        <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="index.html"
+       class="flex items-center space-x-3 rtl:space-x-reverse md:w-48"
+       x-data="{ darkMode: document.documentElement.classList.contains('dark') }"
+       x-init="
+            $watch('darkMode', value => {
+                $refs.logo.src = value
+                    ? 'media/logo/logo-navigation-dark.png'
+                    : 'media/logo/logo-navigation-light.png';
+            });
+            // Listen for changes to the `dark` class
+            const observer = new MutationObserver(() => {
+                darkMode = document.documentElement.classList.contains('dark');
+            });
+            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        ">
+        <img
+                x-ref="logo"
+                :src="darkMode
+            ? 'media/logo/logo-navigation-dark.png'
+            : 'media/logo/logo-navigation-light.png'"
+                class="h-10"
+        >
+    </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><a href="https://github.com/melasistema/hydephp-layouts-manager" target="_blank">Buy Book</a></button>
+            <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+
+                
+                                    <li class="py-2 px-4">
+                                                    <a href="index.html" aria-current="page" class="block text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                                Home
+                            </a>
+                                            </li>
+                                    <li class="py-2 px-4">
+                                                    <a href="posts.html"  class="block text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                                Zoe Blog
+                            </a>
+                                            </li>
+                                    <li class="py-2 px-4">
+                                                    <a href="contact-me.html"  class="block text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                                Contact Me
+                            </a>
+                                            </li>
+                            </ul>
+        </div>
+    </div>
+</nav>
+        <section class="pt-20">
+            
+    <!--
+|--------------------------------------------------------------------------
+| Carousel Component
+|--------------------------------------------------------------------------
+| This is the Carousel component file for the HydePHP Layouts Manager package.
+| File Path: resources/views/components/carousel.blade.php
+|
+| Usage:
+| - Use the `renderComponent` method to render this component.
+|   This approach ensures that your attributes are dynamically merged with the
+|   default configuration values defined in the `hyde-layouts-manager` config file.
+|
+| Purpose:
+| - Provides a reusable Carousel UI element for developers using the HydePHP framework.
+| - Includes default images and styles, which can be customized via the config file
+|   or overridden during usage.
+| - Allows dynamic rendering of carousel slides with default fallback images if none are provided.
+|
+| Flowbite:
+| - The component uses **Flowbite** https://flowbite.com, a Tailwind CSS component library, to implement the carousel functionality and design.
+| - Make sure Flowbite is properly integrated into your project to ensure correct rendering of the carousel and its controls.
+|
+| @package    Melasistema\HydeLayoutsManager
+| @author     Luca Visciola
+| @copyright  2024 Luca Visciola
+| @license    MIT License
+|--------------------------------------------------------------------------
+-->
+
+
+<div class="relative w-full z-0" data-carousel="slide">
+    <div class="relative h-56 overflow-hidden  md:h-96">
+                    <div class="block duration-700 ease-in-out" data-carousel-item>
+                <img src="media/zoe-doodle-showcase.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 1">
+            </div>
+            </div>
+
+    
+    </div>
+
+
+    <section class="max-w-8xl mx-auto">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center">
+            <!-- Left Column: Hero -->
+            <div class="p-8 flex items-center">
+                <!--
+|--------------------------------------------------------------------------
+| Hero Component (Jumbotron)
+|--------------------------------------------------------------------------
+| This is the Hero component file for the HydePHP Layouts Manager package.
+| File Path: resources/views/components/hero.blade.php
+|
+| Usage:
+| - Use the `renderComponent` method to render this component.
+|   This approach ensures that your attributes are dynamically merged with the
+|   default configuration values defined in the `hyde-layouts-manager` config file.
+|
+| Purpose:
+| - Provides a reusable Hero UI element for developers using the HydePHP framework.
+| - Includes default styles and text, which can be customized via the config file
+|   or overridden during usage.
+|
+| Flowbite:
+| - The component uses **Flowbite**, a Tailwind CSS component library, to implement the carousel functionality and design.
+| - Make sure Flowbite is properly integrated into your project to ensure correct rendering of the carousel and its controls.
+|
+| @package    Melasistema\HydeLayoutsManager
+| @author     Luca Visciola
+| @copyright  2024 Luca Visciola
+| @license    MIT License
+|--------------------------------------------------------------------------
+-->
+
+
+<!-- Render Hero component (Jumbotron) -->
+<section class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+
+        <!-- Heading -->
+        <h1 class="mb-4
+            text-5xl
+            md:text-6xl
+            lg:text-6xl
+            font-extrabold tracking-tight leading-none
+            text-gray-900 dark:text-white text-right">
+            Zoe and the Doodling World
+        </h1>
+
+        <!-- Subheading -->
+        <p class="mb-8
+            text-lg
+            md:md:text-xl
+            font-normal text-gray-500 lg:text-xl dark:text-gray-400
+            text-right">
+            Embark on a journey through whimsical worlds and enchanting tales brought to life by Zoe’s magical doodles. Dive into her imagination and explore the stories that inspire her art.
+        </p>
+
+        <!-- Button Group -->
+        <div class="flex flex-col space-y-4 sm:flex-row justify-end sm:space-y-0 w-full">
+            <!-- Primary Button -->
+                            <button type="button" class="inline-flex justify-center items-center py-3 px-5 text-base
+                   sm:sm:text-lg font-medium text-center
+                   text-white
+                   rounded-lg bg-blue-700
+                   hover:bg-blue-800 focus:ring-4
+                   focus:ring-blue-300
+                   dark:focus:ring-dark:focus:ring-blue-900 w-auto">
+                    <a class="inline-flex" href="https://github.com/melasistema/hydephp-layouts-manager">
+                        Buy Book
+                    </a>
+                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                </button>
+            
+            <!-- Secondary Button -->
+                    </div>
+
+    </div>
+</section>
+
+            </div>
+            <!-- Right Column: Gallery -->
+            <div class="p-8">
+                <!--
+|--------------------------------------------------------------------------
+| Gallery Component
+|--------------------------------------------------------------------------
+| This is the Gallery component file for the HydePHP Layouts Manager package.
+| File Path: resources/views/components/gallery.blade.php
+|
+| Usage:
+| - Use the `renderComponent` method to render this component.
+|   This approach ensures that your attributes are dynamically merged with the
+|   default configuration values defined in the `hyde-layouts-manager` config file.
+|
+| Purpose:
+| - Provides a reusable Hero UI element for developers using the HydePHP framework.
+| - Includes default styles and text, which can be customized via the config file
+|   or overridden during usage.
+|
+| Flowbite:
+| - The component uses **Flowbite** https://flowbite.com, a Tailwind CSS component library, to implement the carousel functionality and design.
+| - Make sure Flowbite is properly integrated into your project to ensure correct rendering of the carousel and its controls.
+| @see https://flowbite.com/docs/components/gallery/ (default Flowbite gallery component)
+|
+| @package    Melasistema\HydeLayoutsManager
+| @author     Luca Visciola
+| @copyright  2024 Luca Visciola
+| @license    MIT License
+|--------------------------------------------------------------------------
+-->
+
+
+
+    <div class="grid  grid-cols-3">
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/01-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/02-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/03-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/04-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/05-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/06-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/07-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/08-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/09-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/10-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/11-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+                    <div>
+                <img class="h-auto max-w-full " src="media/book-cover/12-zoe-book-cover.png" alt="Gallery Image">
+            </div>
+            </div>
+
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center">
+            <!-- Left Column: Carousel -->
+            <div class="p-8 flex items-center">
+                <!--
+|--------------------------------------------------------------------------
+| Carousel Component
+|--------------------------------------------------------------------------
+| This is the Carousel component file for the HydePHP Layouts Manager package.
+| File Path: resources/views/components/carousel.blade.php
+|
+| Usage:
+| - Use the `renderComponent` method to render this component.
+|   This approach ensures that your attributes are dynamically merged with the
+|   default configuration values defined in the `hyde-layouts-manager` config file.
+|
+| Purpose:
+| - Provides a reusable Carousel UI element for developers using the HydePHP framework.
+| - Includes default images and styles, which can be customized via the config file
+|   or overridden during usage.
+| - Allows dynamic rendering of carousel slides with default fallback images if none are provided.
+|
+| Flowbite:
+| - The component uses **Flowbite** https://flowbite.com, a Tailwind CSS component library, to implement the carousel functionality and design.
+| - Make sure Flowbite is properly integrated into your project to ensure correct rendering of the carousel and its controls.
+|
+| @package    Melasistema\HydeLayoutsManager
+| @author     Luca Visciola
+| @copyright  2024 Luca Visciola
+| @license    MIT License
+|--------------------------------------------------------------------------
+-->
+
+
+<div class="relative w-full z-0" data-carousel="slide">
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    <div class="block duration-700 ease-in-out" data-carousel-item>
+                <img src="media/doodle-carousel/01-doodle.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 1">
+            </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="media/doodle-carousel/02-doodle.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 2">
+            </div>
+            </div>
+
+    
+    </div>
+
+            </div>
+            <!-- Right Column: Gallery -->
+            <div class="p-8">
+                <!--
+|--------------------------------------------------------------------------
+| Accordion Component
+|--------------------------------------------------------------------------
+| This is the Accordion component file for the HydePHP Layouts Manager package.
+| File Path: resources/views/components/accordion.blade.php
+|
+| Usage:
+| - Use the `renderComponent` method to render this component.
+|   This approach ensures that your attributes are dynamically merged with the
+|   default configuration values defined in the `hyde-layouts-manager` config file.
+|
+| Purpose:
+| - Provides a reusable Hero UI element for developers using the HydePHP framework.
+| - Includes default styles and text, which can be customized via the config file
+|   or overridden during usage.
+|
+| Flowbite:
+| - The component uses **Flowbite** https://flowbite.com, a Tailwind CSS component library, to implement the carousel functionality and design.
+| - Make sure Flowbite is properly integrated into your project to ensure correct rendering of the carousel and its controls.
+|
+| @package    Melasistema\HydeLayoutsManager
+| @author     Luca Visciola
+| @copyright  2024 Luca Visciola
+| @license    MIT License
+|--------------------------------------------------------------------------
+-->
+
+
+<div id="accordion-flush"
+     class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+     data-accordion="collapse"
+     data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+     data-inactive-classes="text-gray-500 dark:text-gray-400">
+            <h2 id="accordion-flush-heading-0">
+            <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                    data-accordion-target="#accordion-flush-body-0"
+                    aria-expanded="true"
+                    aria-controls="accordion-flush-body-0">
+                <span>📖 What is your book about?</span>
+                <svg data-accordion-icon
+                     class="w-3 h-3 rotate-180 shrink-0"
+                     aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                </svg>
+            </button>
+        </h2>
+        <div id="accordion-flush-body-0" class="hidden" aria-labelledby="accordion-flush-heading-0">
+            <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                <p class="mb-2">
+                                Once upon a time, there was a book filled with doodles that came alive! 🌟<br><br>
+                                My book is a treasure trove of whimsical illustrations and enchanting stories that inspire your inner artist to pick up a pen and let your imagination flow. Perfect for beginners and seasoned doodlers alike!
+                            </p>
+            </div>
+        </div>
+            <h2 id="accordion-flush-heading-1">
+            <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                    data-accordion-target="#accordion-flush-body-1"
+                    aria-expanded="true"
+                    aria-controls="accordion-flush-body-1">
+                <span>🎨 What will I learn in your doodle course?</span>
+                <svg data-accordion-icon
+                     class="w-3 h-3 rotate-180 shrink-0"
+                     aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                </svg>
+            </button>
+        </h2>
+        <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+            <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                <p class="mb-2">
+                                Embark on a magical journey of creativity! ✍️ In my doodle course, you'll discover:
+                                <ul>
+                                    <li>How to draw simple yet stunning doodles. ✨</li>
+                                    <li>Tips to bring your ideas to life on paper. 🌈</li>
+                                    <li>Secrets to finding joy and mindfulness through art. 🍃</li>
+                                </ul>
+                                All you need is an open heart and a little bit of courage to start your creative adventure! 🧚‍♀️
+                            </p>
+            </div>
+        </div>
+            <h2 id="accordion-flush-heading-2">
+            <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                    data-accordion-target="#accordion-flush-body-2"
+                    aria-expanded="true"
+                    aria-controls="accordion-flush-body-2">
+                <span>🧙‍♀️ Do I need any prior experience to join?</span>
+                <svg data-accordion-icon
+                     class="w-3 h-3 rotate-180 shrink-0"
+                     aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                </svg>
+            </button>
+        </h2>
+        <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+            <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                <p class="mb-2">
+                                Not at all! This course is designed for everyone, from curious beginners to seasoned artists seeking a touch of magic. Just bring yourself, a notebook, and your favorite pen – the rest will unfold like a fairy tale! ✨
+                            </p>
+            </div>
+        </div>
+            <h2 id="accordion-flush-heading-3">
+            <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                    data-accordion-target="#accordion-flush-body-3"
+                    aria-expanded="true"
+                    aria-controls="accordion-flush-body-3">
+                <span>🌟 Can kids join the doodle course?</span>
+                <svg data-accordion-icon
+                     class="w-3 h-3 rotate-180 shrink-0"
+                     aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                </svg>
+            </button>
+        </h2>
+        <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
+            <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                <p class="mb-2">
+                                Absolutely! The doodle course is perfect for kids and adults alike. It's a playful and engaging way to explore creativity together as a family. 👩‍👧‍👦🌈<br><br>
+                                Many young artists have discovered their love for drawing through my classes – and I can’t wait to inspire more!
+                            </p>
+            </div>
+        </div>
+            <h2 id="accordion-flush-heading-4">
+            <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                    data-accordion-target="#accordion-flush-body-4"
+                    aria-expanded="true"
+                    aria-controls="accordion-flush-body-4">
+                <span>📦 Where can I buy your book?</span>
+                <svg data-accordion-icon
+                     class="w-3 h-3 rotate-180 shrink-0"
+                     aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                </svg>
+            </button>
+        </h2>
+        <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
+            <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                <p class="mb-2">
+                                My magical doodle book is available online and in select bookstores! You can find it here:<br><br>
+                                <strong><a href="https://github.com/melasistema/hydephp-layouts-manager" target="_blank" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Order the book now →</a></strong><br><br>
+                                Every purchase supports my mission to spread creativity and joy across the world. Thank you for being part of this magical journey! 🌸✨
+                            </p>
+            </div>
+        </div>
+    </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <img class="p-12" src="media/mixed/hand-drawn-line.png" alt="The Tale of Zoe">
+
+        </section>
+        <footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
+        <div class="mx-auto max-w-screen-xl text-center">
+            <a href="index.html" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
+                <img src="media/hyde-layouts-manager/logo/hydephp-logo.svg" class="h-8" alt="HydePHP Layouts Manager">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                    Hyde Wizard - The Tale of Zoe
+                </span>
+            </a>
+            <p class="my-6 text-gray-500 dark:text-gray-400">Zoe’s magical doodles</p>
+            <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+                                    <li>
+                        <a href="https://github.com/melasistema/hydephp-layouts-manager" class="mr-4 hover:underline md:mr-6 ">Buy Book</a>
+                    </li>
+                                    <li>
+                        <a href="https://github.com/melasistema" class="mr-4 hover:underline md:mr-6 ">Contact Me</a>
+                    </li>
+                            </ul>
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"><p>Proudly built with <a href="https://github.com/hydephp/hyde">HydePHP</a> 🎩 and <a href="https://github.com/melasistema/hydephp-layouts-manager">Layouts Manager</a> 🎨</p>
+</span>
+        </div>
+        <a href="#app" aria-label="Go to top of page" class="float-right">
+            <button title="Scroll to top">
+                <svg width="1.5rem" height="1.5rem" role="presentation" class="fill-current text-gray-500 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+                </svg>
+            </button>
+        </a>
+    </footer>
+        <script defer src="media/app.js?v=c114616d10f78af45f88c379c4bd3ba8"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.3/dist/cdn.min.js" integrity="sha256-gOkV4d9/FmMNEkjOzVlyM2eNAWSUXisT+1RbMTTIgXI=" crossorigin="anonymous"></script>
+
+<script>
+    function toggleTheme() {
+        if (localStorage.getItem('color-theme') === 'dark' || !('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem('color-theme', 'light');
+            document.getElementById('meta-color-scheme').setAttribute('content', 'light');
+        } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem('color-theme', 'dark');
+            document.getElementById('meta-color-scheme').setAttribute('content', 'dark');
+        }
+    }
+</script>
+
+
+
+
+
+
+    </body>
+</html>

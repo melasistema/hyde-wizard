@@ -1,0 +1,32 @@
+{
+  "layouts": {
+    "melasistema": {
+      "use_google_fonts": true,
+      "families": {
+        "primary": "Indie Flower:wght@400",
+        "secondary": "Sour Gummy:wght@600",
+        "display": "Sour Gummy:wght@600",
+        "heading": "Sour Gummy:wght@600",
+        "subheading": "Handlee:wght@400",
+        "accent": "Just Another Hand:wght@400",
+        "code": "Fira Code:wght@400;500",
+        "small": "Amatic SC:wght@400;700"
+      },
+      "typography_mapping": {
+        "h1": "display",
+        "h2": "heading",
+        "h3": "subheading",
+        "h4": "subheading",
+        "h5": "secondary",
+        "h6": "secondary",
+        "p": "primary",
+        "small": "small",
+        "code": "code",
+        "blockquote": "display",
+        "label": "secondary",
+        "button": "heading"
+      },
+      "custom_css": {}
+    }
+  }
+}

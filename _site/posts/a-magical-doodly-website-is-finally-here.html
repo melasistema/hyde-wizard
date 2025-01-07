@@ -1,0 +1,246 @@
+<!--
+|--------------------------------------------------------------------------
+| Base Layout: MelaSistema Theme
+|--------------------------------------------------------------------------
+| This is the base layout file for the MelaSistema theme used in the HydePHP Layouts Manager package.
+| File Path: resources/views/layouts/melasistema/app.blade.php
+|
+| Usage Recommendation:
+| - This file is the foundation for rendering your web pages using the MelaSistema theme.
+| - It is recommended to extend this layout in your page-specific Blade views using the extends directive.
+|
+| Purpose:
+| - Provides the core HTML structure for the MelaSistema theme, including the header, footer,
+|   and other common elements shared across your site's pages.
+| - It includes essential configurations such as dark mode and accessibility features.
+|
+| Components Included:
+| - **Head Section**: Includes external styles, scripts, and meta tags required for the layout.
+| - **Skip to Content Button**: Provides a link for users to quickly skip to the main content for accessibility.
+| - **Navigation**: Displays the main site navigation.
+| - **Footer**: Contains the site's footer elements.
+| - **Scripts**: Includes necessary JavaScript files.
+|
+| Flowbite Integration:
+| - This layout uses **Flowbite** https://flowbite.com, a Tailwind CSS component library, for the styling of navigation and other UI elements.
+| - Ensure Flowbite is properly installed and configured to achieve the expected layout behavior.
+|
+| @package    Melasistema\HydeLayoutsManager
+| @author     Luca Visciola
+| @copyright  2024 Luca Visciola
+| @license    MIT License
+|--------------------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <head>
+            <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hyde Wizard - The Tale of Zoe - A Magical Doodly Website is Finally Here!</title>
+
+    <link rel="shortcut icon" href="../media/favicon.ico" type="image/x-icon">
+
+
+<meta name="twitter:title" content="Hyde Wizard - The Tale of Zoe - A Magical Doodly Website is Finally Here!">
+<meta name="description" content="In a universe that often feels split between logic and creativity, I’ve come to see these forces not as opposites but as companions. Through this site, I hope to inspire you to embrace the magic within yourself—the part that sees beauty in the ordinary, that believes in the impossible, and that knows dreams are worth chasing.">
+<meta name="author" content="Zoe">
+<meta name="keywords" content="announcement">
+<meta property="og:title" content="Hyde Wizard - The Tale of Zoe - A Magical Doodly Website is Finally Here!">
+<meta property="og:article:published_time" content="2025-01-07T00:00:00+00:00">
+<meta property="og:image" content="../media/book-cover/zoe-book-cover-full.png">
+<meta property="og:type" content="article">
+
+
+<meta name="generator" content="HydePHP v1.7.5">
+<meta property="og:site_name" content="Hyde Wizard - The Tale of Zoe">
+
+
+
+
+<style>[x-cloak] {display: none!important}</style>
+
+
+    <link rel="stylesheet" href="../media/app.css?v=a0c9b855cda544f449503f9e07fd0bb6">
+
+
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower:wght@400&amp;family=Sour+Gummy:wght@600&amp;family=Sour+Gummy:wght@600&amp;family=Sour+Gummy:wght@600&amp;family=Handlee:wght@400&amp;family=Just+Another+Hand:wght@400&amp;family=Fira+Code:wght@400;500&amp;family=Amatic+SC:wght@400;700&amp;display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+
+        </head>
+    </head>
+    <body id="app" class="flex flex-col min-h-screen overflow-x-hidden dark:bg-gray-900 dark:text-white" x-data="{ navigationOpen: false }" x-on:keydown.escape="navigationOpen = false;">
+        <a href="#content" id="skip-to-content" class="sr-only focus:not-sr-only bg-black border-4 border-yellow-400 focus:absolute focus:mt-2 focus:mx-auto focus:p-2 focus:w-64 h-auto left-0 overflow-auto right-0 rounded-md text-center text-lg text-white top-auto z-50 ">Skip to content</a>        <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="../index.html"
+       class="flex items-center space-x-3 rtl:space-x-reverse md:w-48"
+       x-data="{ darkMode: document.documentElement.classList.contains('dark') }"
+       x-init="
+            $watch('darkMode', value => {
+                $refs.logo.src = value
+                    ? '../media/logo/logo-navigation-dark.png'
+                    : '../media/logo/logo-navigation-light.png';
+            });
+            // Listen for changes to the `dark` class
+            const observer = new MutationObserver(() => {
+                darkMode = document.documentElement.classList.contains('dark');
+            });
+            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        ">
+        <img
+                x-ref="logo"
+                :src="darkMode
+            ? '../media/logo/logo-navigation-dark.png'
+            : '../media/logo/logo-navigation-light.png'"
+                class="h-10"
+        >
+    </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><a href="https://github.com/melasistema/hydephp-layouts-manager" target="_blank">Buy Book</a></button>
+            <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+
+                
+                                    <li class="py-2 px-4">
+                                                    <a href="../index.html"  class="block text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                                Home
+                            </a>
+                                            </li>
+                                    <li class="py-2 px-4">
+                                                    <a href="../posts.html"  class="block text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                                Zoe Blog
+                            </a>
+                                            </li>
+                                    <li class="py-2 px-4">
+                                                    <a href="../contact-me.html"  class="block text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                                Contact Me
+                            </a>
+                                            </li>
+                            </ul>
+        </div>
+    </div>
+</nav>
+        <section class="pt-20">
+            
+    <main id="content" class="mx-auto max-w-7xl py-16 px-8">
+        <article aria-label="Article" id="a-magical-doodly-website-is-finally-here" itemscope itemtype="https://schema.org/Article"
+        class="post-article mx-auto prose dark:prose-invert">
+    <meta itemprop="identifier" content="a-magical-doodly-website-is-finally-here">
+    
+    <header aria-label="Header section" role="doc-pageheader">
+        <h1 itemprop="headline" class="mb-4 mt-8">A Magical Doodly Website is Finally Here!</h1>
+        <div id="byline" aria-label="About the post" role="doc-introduction">
+            Posted <time itemprop="dateCreated datePublished" datetime="2025-01-07T00:00:00+00:00" title="Tuesday Jan 7th, 2025, at 12:00am">Jan 7th, 2025</time>            by author
+<address itemprop="author" itemscope itemtype="https://schema.org/Person" aria-label="The post author" style="display: inline;">
+                <span itemprop="name" aria-label="The author's name" title=@Zoe>Zoe</span>
+            </address>            in the category "announcement"        </div>
+    </header>
+    <figure class="w-full " aria-label="Cover image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject" role="doc-cover">
+    <img src="../media/book-cover/zoe-book-cover-full.png" alt="" title="" itemprop="image" class="mb-0 object-cover w-full rounded-t-lg md:h-auto md:rounded-none md:rounded-s-lg">
+    <figcaption aria-label="Image caption" itemprop="caption">
+        
+        
+            </figcaption>
+
+            <meta itemprop="url" content="../media/book-cover/zoe-book-cover-full.png">
+            <meta itemprop="contentUrl" content="../media/book-cover/zoe-book-cover-full.png">
+    </figure>    <div aria-label="Article body" itemprop="articleBody">
+        <h1>A Magical Doodly Website is Finally Here! ✨</h1>
+<p>Greetings, fellow travelers and dreamers,</p>
+<p>I am Zoe, a humble doodler with a heart full of wonder and a sketchbook brimming with magic. Today, I embark on a journey unlike any other—a journey into the boundless realm of pixels and possibilities. Welcome to my enchanted corner of the web, a place where whimsy and creativity come alive!</p>
+<p>This website is more than a showcase of my art; it is a manifestation of dreams turned into reality. Each doodle, each story, and each color you’ll find here has been woven with love and intention, inspired by the magical worlds that dance within my imagination.</p>
+<h2>Why This Journey Matters 🌟</h2>
+<p>In a universe that often feels split between logic and creativity, I’ve come to see these forces not as opposites but as companions. Through this site, I hope to inspire you to embrace the magic within yourself—the part that sees beauty in the ordinary, that believes in the impossible, and that knows dreams are worth chasing.</p>
+<p>Here, you’ll discover:</p>
+<ul>
+<li><strong>Whimsical Characters</strong>: Meet the stars of my stories, from mischievous sprites to noble dreamers.</li>
+<li><strong>Enchanting Landscapes</strong>: Explore the magical realms that spring from my sketchbook to your screen.</li>
+<li><strong>Tales of Inspiration</strong>: Dive into stories that remind us of the wonder hidden in everyday life.</li>
+</ul>
+<h2>A Heartfelt Thank You 🌟</h2>
+<p>This magical journey would not have been possible without the guidance of the wise Hyde Wizard. With his mystical teachings, I discovered <strong>HydePHP</strong>, the enchanting framework that brought my dreams to life. If you, too, wish to embark on a journey of creativity and wonder, I invite you to visit his realm: <a href="https://hydephp.com">HydePHP Official Website</a>.</p>
+<p>I also owe a world of gratitude to <strong>Melasistema</strong>, whose tireless efforts brought us the <strong>HydePHP Layouts Manager</strong>—a spellbinding tool that helped shape this magical website. Explore its wonders and see how it can transform your creations: <a href="https://github.com/melasistema/hydephp-layouts-manager">HydePHP Layouts Manager Repository</a>.</p>
+<p>To all who wander into this space, thank you for being part of this tale. Together, let us continue to weave dreams, spark imagination, and remind the world that magic is real, and it begins within us.</p>
+<p>With endless gratitude and doodles,<br />
+<strong>Zoe</strong></p>
+
+    </div>
+    <span class="sr-only">End of article</span>
+</article>    </main>
+
+        </section>
+        <footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
+        <div class="mx-auto max-w-screen-xl text-center">
+            <a href="../index.html" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
+                <img src="../media/hyde-layouts-manager/logo/hydephp-logo.svg" class="h-8" alt="HydePHP Layouts Manager">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                    Hyde Wizard - The Tale of Zoe
+                </span>
+            </a>
+            <p class="my-6 text-gray-500 dark:text-gray-400">Zoe’s magical doodles</p>
+            <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+                                    <li>
+                        <a href="https://github.com/melasistema/hydephp-layouts-manager" class="mr-4 hover:underline md:mr-6 ">Buy Book</a>
+                    </li>
+                                    <li>
+                        <a href="https://github.com/melasistema" class="mr-4 hover:underline md:mr-6 ">Contact Me</a>
+                    </li>
+                            </ul>
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"><p>Proudly built with <a href="https://github.com/hydephp/hyde">HydePHP</a> 🎩 and <a href="https://github.com/melasistema/hydephp-layouts-manager">Layouts Manager</a> 🎨</p>
+</span>
+        </div>
+        <a href="#app" aria-label="Go to top of page" class="float-right">
+            <button title="Scroll to top">
+                <svg width="1.5rem" height="1.5rem" role="presentation" class="fill-current text-gray-500 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+                </svg>
+            </button>
+        </a>
+    </footer>
+        <script defer src="../media/app.js?v=c114616d10f78af45f88c379c4bd3ba8"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.3/dist/cdn.min.js" integrity="sha256-gOkV4d9/FmMNEkjOzVlyM2eNAWSUXisT+1RbMTTIgXI=" crossorigin="anonymous"></script>
+
+<script>
+    function toggleTheme() {
+        if (localStorage.getItem('color-theme') === 'dark' || !('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem('color-theme', 'light');
+            document.getElementById('meta-color-scheme').setAttribute('content', 'light');
+        } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem('color-theme', 'dark');
+            document.getElementById('meta-color-scheme').setAttribute('content', 'dark');
+        }
+    }
+</script>
+
+
+
+
+
+
+    </body>
+</html>
