@@ -1,6 +1,8 @@
 
 # 🌟 Hyde Wizard: The Tale of Zoe – From Doodler to Best-Seller with HydePHP
 
+![The Tale of Zoe](_media/hyde-wizard-repo-header.png)
+
 🌐 **Live Website:** [Zoe's Magical Website](https://hydewizard.melasistema.com)
 
 Welcome to the Hyde Wizard repository! This magical project brings to life *The Tale of Zoe: From Doodler to Best-Seller*, a whimsical journey of creativity and web development powered by [HydePHP](https://hydephp.com).
