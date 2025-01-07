@@ -4,7 +4,7 @@ title: 'Contact Me'
 
 # ✨ **Contact & Connect** ✨
 
-Thank you for exploring the [HydePHP Layouts Manager](https://github.com/melasistema/hydephp-layouts-manager)! 🌟 Whether you're here to dive deeper into the tutorial ["The Tale of Zoe: From Doodler to Best-Seller with HydePHP"](https://hydephp.melasistema.com/the-tale-of-zoe-from-doodler-to-best-seller-with-hydephp), contribute to the [project](https://github.com/melasistema/hydephp-layouts-manager), or just say hello—I'm here to help.
+Thank you for exploring the [HydePHP Layouts Manager](https://github.com/melasistema/hydephp-layouts-manager)! 🌟 Whether you're here to dive deeper into the tutorial ["The Tale of Zoe: From Doodler to Best-Seller with HydePHP"](https://hydephp.melasistema.com/posts/the-tale-of-zoe-from-doodler-to-best-seller-with-hyde-php.html), contribute to the [project](https://github.com/melasistema/hydephp-layouts-manager), or just say hello—I'm here to help.
 
 ---
 
